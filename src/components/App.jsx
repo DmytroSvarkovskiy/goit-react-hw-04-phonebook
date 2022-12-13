@@ -16,9 +16,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 const KEY_STORAGE = 'contacts';
 export const App = () => {
-  const [contacts, setContacts] = useState(
-    JSON.parse(localStorage.getItem(KEY_STORAGE)) ?? []
-  );
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(localStorage.getItem(KEY_STORAGE)) ?? [];
+  });
   const [filters, setFilter] = useState('');
 
   useEffect(() => {
